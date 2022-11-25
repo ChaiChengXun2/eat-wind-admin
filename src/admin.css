@@ -1,0 +1,36 @@
+.admin {
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.admin form {
+    width: 70%;
+    flex-direction: column;
+}
+
+.admin form section {
+    margin: 10px;
+    width: 100%;
+}
+
+.admin form section label {
+    margin-right: 10px;
+    text-align: start;
+    width: 20%;
+}
+
+.admin form section input {
+    border-radius: 6px;
+    outline: none;
+    height: 3rem;
+    color: var(--text-colour);
+    background: var(--main-colour);
+    padding: 0 10px;
+    width: 80%;
+    border: 1px solid var(--primary-colour);
+}
+
+.admin form section .image-input {
+    border: none;
+    height: unset;
+}

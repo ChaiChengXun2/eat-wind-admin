@@ -1,0 +1,23 @@
+.modal.create {
+    background: var(--main-colour);
+    height: 85%;
+    width: 100%;
+    border-radius: var(--standard-radius);
+    overflow-y: scroll;
+    padding: 20px 20px;
+    flex-direction: column;
+}
+
+.modal.create form {
+    height: max-content;
+    margin: 0 auto;
+}
+
+.modal.create form label, .modal.create form input{color: white}
+
+.modal.create button {
+    width: 80%;
+    height: 3rem;
+}
+
+.modal.create > .submit {width: 100%}

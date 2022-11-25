@@ -1,0 +1,22 @@
+.modal.delete {
+    width: 500px;
+    height: 250px;
+    border-radius: var(--standard-radius);
+    flex-direction: column;
+    align-self: center;
+    background: var(--main-colour);
+}
+
+.modal.delete .default-text {
+    width: 80%;
+    text-align: center;
+    color: white;
+}
+
+.modal.delete .default-button {margin: 10px}
+
+.modal.delete .default-button:first-child {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}

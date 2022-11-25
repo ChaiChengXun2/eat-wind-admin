@@ -1,0 +1,7 @@
+.logged-out {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.logged-out > .default-button {margin-top: 15px}

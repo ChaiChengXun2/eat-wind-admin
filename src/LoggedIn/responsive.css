@@ -1,0 +1,9 @@
+@media screen and (max-width: 767px) {
+    .logged-in nav p {margin-left: 1rem}
+    .logged-in nav button {margin-right: 1rem}
+
+    .logged-in .update .create > div {
+        width: 50%;
+        margin-right: 1rem;
+    }
+}

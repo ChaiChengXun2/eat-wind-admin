@@ -1,0 +1,14 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.5);
+}
+  
+.backdrop .temp {
+  position: absolute;
+  background: transparent;
+  inset: 0;
+}

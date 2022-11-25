@@ -1,0 +1,6 @@
+.error {
+    height: 100vh;
+    flex-direction: column;
+}
+
+.error p {margin: 10px}

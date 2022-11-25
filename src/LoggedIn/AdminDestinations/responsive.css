@@ -1,0 +1,15 @@
+@media screen and (max-width: 767px) {
+  .admin-destination {
+    flex-direction: column;
+    height: max-content;
+    padding: 10px 0;
+  }
+
+  .admin-destination .default-title {
+    margin-left: 0;
+    width: 90%;
+    text-align: center;
+  }
+
+  .admin-destination .buttons {margin: 10px 0}
+}

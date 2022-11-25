@@ -1,0 +1,11 @@
+@media screen and (max-width: 767px) {
+    form section {flex-direction: column}
+
+    .admin form section label {
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .admin form section input {width: 100%}
+}

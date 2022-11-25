@@ -1,0 +1,19 @@
+.admin-destination {
+  flex-direction: row;
+  height: 5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--primary-colour);
+}
+
+.admin-destination .default-title {
+  margin-left: 4rem;
+  width: 70%;
+  overflow: hidden;
+}
+
+.admin-destination .buttons {
+  flex-direction: row;
+  margin-right: 2rem;
+}
+
+.admin-destination .buttons > div {margin: 0 5px}

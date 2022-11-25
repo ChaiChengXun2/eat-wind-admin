@@ -1,0 +1,12 @@
+.modal.edit {
+    width: 100%;
+    height: 65%;
+    background: var(--main-colour);
+    border-radius: var(--standard-radius);
+    flex-direction: column;
+    overflow-y: scroll;
+    align-self: center;
+}
+
+.modal.edit form label, .modal.edit form input {color: white}
+.modal.edit .default-button {margin-top: 10px}
