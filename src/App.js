@@ -7,12 +7,12 @@ import NotFound from "./NotFound";
 const App = () => {
   return (
     <BrowserRouter>
-    <ScrollToTop />
-    <Routes>
+      <ScrollToTop />
+      <Routes>
         <Route path="/" element={<Admin />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
-  </BrowserRouter>
+    </BrowserRouter>
   )
 }
 
