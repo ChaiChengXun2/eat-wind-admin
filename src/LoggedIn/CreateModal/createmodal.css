@@ -21,3 +21,8 @@
 }
 
 .modal.create > .submit {width: 100%}
+
+.add-new {
+    width: 100% !important;
+    margin-top: 15px;
+}

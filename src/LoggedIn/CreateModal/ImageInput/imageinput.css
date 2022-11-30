@@ -3,6 +3,6 @@
     height: 3rem;
 }
 
-.image-input {
-    height: 3rem;
+section.image-input-container {
+    padding-top: 1rem;
 }

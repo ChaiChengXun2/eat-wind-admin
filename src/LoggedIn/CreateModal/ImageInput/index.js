@@ -31,11 +31,11 @@ const ImageInput = ({ title, setData }) => {
   }
 
   return (
-    <section className='flex-center-center'>
-      <label className='default-text'>{title}: </label>
+    <section className='flex-center-center image-input-container'>
+      <label className='default-text'>*{title}: </label>
       {
         !status 
-        ? pending ? <div className='default-text uploaded flex-center-center'>Uploading Please Wait</div> : <input onChange={handleUpload} type='file' className='image-input'/>
+        ? pending ? <div className='default-text uploaded flex-center-center'>Uploading Please Wait</div> : <input onChange={handleUpload} type='file' className='image-input flex-center-center'/>
         : <div className='default-text uploaded flex-center-center'>Picture Uploaded</div>
       }
     </section>

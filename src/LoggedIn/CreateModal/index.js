@@ -6,16 +6,17 @@ import { ref, set } from "firebase/database";
 import { db } from "../../database";
 import UploadModal from "./UploadModal";
 import Modal from "../../Modal";
+import OptionalData from './OptionalData';
 
 const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
 
   const [status, setStatus] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [numberOfDescription, setNumberOfDescription] = useState(0);
   const [data, setData] = useState({
     Title: undefined, 
     Type: undefined,
     Location: undefined,
-    Author: undefined, 
     Description: undefined, 
     Banner: undefined,
     Image1: undefined, 
@@ -26,15 +27,23 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
     Image6: undefined 
   })
 
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
   const handleSubmit = async (e) => {
     e.currentTarget.disabled = true; 
-    console.log(data)
     e.preventDefault(); 
     if (Object.values(data).includes(undefined)) {
       alert("Upload Failed, Some Fields Are Empty.");
-      e.currentTarget.disabled = false;
+      e.currentTarget.disabled = false; 
     } else {
       setShowUploadModal(true);
+      let allOptionalDes = []; 
+      document.querySelectorAll(".optional-des").forEach(description => {
+        allOptionalDes.push(description.children[0].value)
+      })
+      setData(prev => ({...prev, OptionalDes: allOptionalDes}));
       await set(ref(db, "destinations/" + data.Title.slice(0, 2) + data.Description.slice(0, 2) + data.Location.slice(0, 2)), data);
       setStatus(true);
       setTimeout(() => {
@@ -59,8 +68,13 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
         <TextInput title='Title' setData={setData} />
         <TextInput title='Type' setData={setData} />
         <TextInput title='Location' setData={setData} />
-        <TextInput title='Author' setData={setData} />
         <TextInput title='Description' setData={setData} />
+        <button className="default-button add-new" onClick={e => {e.preventDefault(); setNumberOfDescription(prev => prev + 1)}}>Add Description +</button>
+        {
+          Array.from(Array(numberOfDescription)).map((item, i) => {
+            return (<OptionalData key={i} setNumber={setNumberOfDescription}/>)
+          })
+        }
         <ImageInput title='Banner' setData={setData} />
         <ImageInput title='Image1' setData={setData} />
         <ImageInput title='Image2' setData={setData} />
