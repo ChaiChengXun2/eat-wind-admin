@@ -27,23 +27,20 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
     Image6: undefined 
   })
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   const handleSubmit = async (e) => {
     e.currentTarget.disabled = true; 
     e.preventDefault(); 
+    let allOptionalDes = []; 
+    document.querySelectorAll(".optional-des").forEach(description => {
+      allOptionalDes.push(description.children[0].value);
+    })
+    setData(prev => ({...prev, OptionalDes: allOptionalDes}));
     if (Object.values(data).includes(undefined)) {
       alert("Upload Failed, Some Fields Are Empty.");
       e.currentTarget.disabled = false; 
+      allOptionalDes = [];
     } else {
       setShowUploadModal(true);
-      let allOptionalDes = []; 
-      document.querySelectorAll(".optional-des").forEach(description => {
-        allOptionalDes.push(description.children[0].value)
-      })
-      setData(prev => ({...prev, OptionalDes: allOptionalDes}));
       await set(ref(db, "destinations/" + data.Title.slice(0, 2) + data.Description.slice(0, 2) + data.Location.slice(0, 2)), data);
       setStatus(true);
       setTimeout(() => {
