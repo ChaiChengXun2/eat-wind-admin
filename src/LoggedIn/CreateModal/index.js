@@ -13,6 +13,7 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
   const [status, setStatus] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [numberOfDescription, setNumberOfDescription] = useState(0);
+  const [opt, setOpt] = useState([]);
   const [data, setData] = useState({
     Title: undefined, 
     Type: undefined,
@@ -24,21 +25,20 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
     Image3: undefined,
     Image4: undefined,
     Image5: undefined, 
-    Image6: undefined 
+    Image6: undefined,
+    OptionalDes: [],
   })
+
+  useEffect(() => {
+    setData(prev => ({...prev, OptionalDes: opt}))
+  }, [opt])
 
   const handleSubmit = async (e) => {
     e.currentTarget.disabled = true; 
     e.preventDefault(); 
-    let allOptionalDes = []; 
-    document.querySelectorAll(".optional-des").forEach(description => {
-      allOptionalDes.push(description.children[0].value);
-    })
-    setData(prev => ({...prev, OptionalDes: allOptionalDes}));
     if (Object.values(data).includes(undefined)) {
       alert("Upload Failed, Some Fields Are Empty.");
       e.currentTarget.disabled = false; 
-      allOptionalDes = [];
     } else {
       setShowUploadModal(true);
       await set(ref(db, "destinations/" + data.Title.slice(0, 2) + data.Description.slice(0, 2) + data.Location.slice(0, 2)), data);
@@ -69,7 +69,7 @@ const CreateModal = ({ showCreateModal, setShowCreateModal }) => {
         <button className="default-button add-new" onClick={e => {e.preventDefault(); setNumberOfDescription(prev => prev + 1)}}>Add Description +</button>
         {
           Array.from(Array(numberOfDescription)).map((item, i) => {
-            return (<OptionalData key={i} setNumber={setNumberOfDescription}/>)
+            return (<OptionalData key={i} setNumber={setNumberOfDescription} setOpt={setOpt} />)
           })
         }
         <ImageInput title='Banner' setData={setData} />
